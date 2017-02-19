@@ -10,7 +10,7 @@ function membersIndex(request, response) {
 
 function membersCreate(request, response) {
   var member = new Member(request.body);
-  Member.save(function(error) {
+  member.save(function(error) {
     if(error) return response.status(400).json({messsage: 'Could not ceate member', error: error});
     response.json(member);
   });

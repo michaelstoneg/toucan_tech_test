@@ -1,14 +1,14 @@
 angular
   .module('membersApp')
-  .factory('Memeber', Memeber);
+  .factory('Member', Member);
 
-Memeber.$inject = ['$resource'];
+Member.$inject = ['$resource'];
 
-function Memeber ($resource) {
-  const Memeber = new $resource('/members/:id', { id: '@_id'}, {
+function Member ($resource) {
+  const Member = new $resource('/members/:id', { id: '@_id'}, {
     update: { method: 'PUT' }
   });
 
-  return Memeber;
+  return Member;
 
 }

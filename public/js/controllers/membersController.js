@@ -36,5 +36,5 @@ function MembersController(Member) {
   }
 
   getMembers();
-
+  console.log('members controller');
 }

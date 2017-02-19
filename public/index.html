@@ -11,51 +11,64 @@
   <script src="/js/models/member.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body ng-controller = "MembersController as criminals">
+<body ng-controller = "MembersController as members">
   <h1>School Connections</h1>
 
   <section>
-    <ul id="criminals">
-      <li ng-repeat="criminal in criminals.all">
-        <strong>{{ criminal.name }}</strong> <em>{{ criminal.location }}</em> <span class="status dead">{{ criminal.status }}</span>
-        <button class="delete" ng-click="criminals.removeCriminal(criminal)">X</button>
+    <ul id="members">
+      <li ng-repeat="member in members.all">
+        {{members.all}}
+        <strong>{{ member.name }}</strong> <em>{{ member.email }}</em> <span class="status dead">{{ member.school }}</span>
+        <!-- <img src={{member.picture}} alt="" /> -->
+        {{member.picture}}
+        <button class="delete" ng-click="members.removeMember(member)">X</button>
       </li>
     </ul>
 
 
-    <form name="criminals.form" id="newCriminal" ng-submit="criminals.addCriminal()">
+    <form name="members.form" id="newMember" ng-submit="members.addMember()">
       <div>
-        <label for="newCriminal-name">Name:</label>
-        <input type="text" id="newCriminal-name" ng-model="criminals.newCriminal.name" placeholder="Prof. Moriarty" name="name" required minlength="5" maxlength="20">
-        <div ng-messages="criminals.form.name.$error" ng-show="criminals.form.name.$dirty">
+        <label for="newMember-name">Name:</label>
+        <input type="text" id="newMember-name" ng-model="members.newMember.name" placeholder="Prof. Moriarty" name="name" required minlength="5" maxlength="20">
+        <div ng-messages="members.form.name.$error" ng-show="members.form.name.$dirty">
           <p ng-message ="required">Name is required</p>
           <p ng-message ="minlength">Name is too short</p>
         </div>
       </div>
 
       <div>
-        <label for="newCriminal-location">Location:</label>
-        <input type="text" id="newCriminal-location" ng-model="criminals.newCriminal.location" placeholder="Reichenbach Falls, CH" name="location" required minlength="5" maxlength="20">
-        <div ng-messages="criminals.form.location.$error" ng-show="criminals.form.location.$dirty">
+        <label for="newMember-email">E-mail:</label>
+        <input type="text" id="newMember-email" ng-model="members.newMember.email" placeholder="oldpal@almamater.com" name="email" required minlength="5" maxlength="20">
+        <div ng-messages="members.form.email.$error" ng-show="members.form.email.$dirty">
           <p ng-message ="required">Location is required</p>
-          <p ng-message ="minlength">Location is too short</p>
         </div>
       </div>
 
       <div>
-        <label for="newCriminal-status">Status:</label>
-        <select id="newCriminal-status" ng-model="criminals.newCriminal.status" name="status" required>
+        <label for="newMember-school">School:</label>
+        <select id="newMember-school" ng-model="members.newMember.school" name="school" required>
           <option value="" disabled>- - Please Select One - -</option>
-          <option value="alive">Alive</option>
-          <option value="dead">Dead</option>
-          <option value="unknown" selected>Unknown</option>
+          <option value="oxford">Oxford</option>
+          <option value="wutangclan">Wu-Tang Clan</option>
+          <option value="xschool" selected>Xavier's School for Gifted Youngsters</option>
+          <option value="harvard" selected>Harvard</option>
+          <option value="stanford" selected>Stanford</option>
         </select>
-        <div ng-messages="criminals.form.status.$error" ng-show="criminals.form.status.$dirty">
-          <p ng-message ="required">Status is required</p>
+        <div ng-messages="members.form.school.$error" ng-show="members.form.school.$dirty">
+          <p ng-message ="required">School is required</p>
         </div>
       </div>
+
       <div>
-        <input type="submit" value="Add Criminal" ng-disabled="criminals.form.$invalid">
+        <label for="newMember-picture">Picture:</label>
+        <input type="text" id="newMember-picture" ng-model="members.newMember.picture" placeholder="img url here" name="picture" required minlength="5" maxlength="20">
+        <div ng-messages="members.form.picture.$error" ng-show="members.form.picture.$dirty">
+          <p ng-message ="required">Picture is required</p>
+        </div>
+      </div>
+
+      <div>
+        <input type="submit" value="Add Member" ng-disabled="members.form.$invalid">
       </div>
     </form>
 
