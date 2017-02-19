@@ -14,13 +14,22 @@
 <body ng-controller = "MembersController as members">
   <h1>School Connections</h1>
 
+  <h2>By school</h2>
+  <p>group1</p>
+  <ul>
+    <li ng-repeat="member in members.all">
+      <p>
+        {{member}}
+      </p>
+    </li>
+  </ul>
+
+
   <section>
     <ul id="members">
       <li ng-repeat="member in members.all">
-        {{members.all}}
         <strong>{{ member.name }}</strong> <em>{{ member.email }}</em> <span class="status dead">{{ member.school }}</span>
-        <!-- <img src={{member.picture}} alt="" /> -->
-        {{member.picture}}
+        <img class="pic" ng-src="{{member.picture}}" alt="" />
         <button class="delete" ng-click="members.removeMember(member)">X</button>
       </li>
     </ul>
@@ -61,7 +70,7 @@
 
       <div>
         <label for="newMember-picture">Picture:</label>
-        <input type="text" id="newMember-picture" ng-model="members.newMember.picture" placeholder="img url here" name="picture" required minlength="5" maxlength="20">
+        <input type="text" id="newMember-picture" ng-model="members.newMember.picture" placeholder="img url here" name="picture" required minlength="5">
         <div ng-messages="members.form.picture.$error" ng-show="members.form.picture.$dirty">
           <p ng-message ="required">Picture is required</p>
         </div>

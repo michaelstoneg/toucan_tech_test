@@ -136,3 +136,8 @@ form#newCriminal input[type=submit]:focus {
   box-shadow: none;
   outline: none;
 }
+
+.pic {
+  height: 60px;
+  width: 30px;
+}
