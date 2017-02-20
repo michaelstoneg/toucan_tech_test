@@ -11,4 +11,4 @@ Sort list by school.
 ####Notes:
 This app requires Mongodb, AngualarJs and Node.js.
 
-Node dependencies: body-parser, express, mongoose, morgan.
+Node dependencies (using npm): body-parser, express, mongoose, morgan.
