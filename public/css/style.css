@@ -55,7 +55,7 @@ ul#criminals li button.delete:hover {
   color: grey;
 }
 
-span.status {
+span.school {
   font-size: 0.6rem;
   font-weight: bold;
   letter-spacing: 2px;
@@ -70,12 +70,12 @@ span.status {
   text-transform: uppercase;
 }
 
-span.status.dead {
+/*span.status.dead {
   background: red;
 }
 span.status.alive {
   background: green;
-}
+}*/
 
 form#newCriminal {
   border: 2px solid black;
@@ -139,5 +139,5 @@ form#newCriminal input[type=submit]:focus {
 
 .pic {
   height: 60px;
-  width: 30px;
+  width: 45px;
 }
